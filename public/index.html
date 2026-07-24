@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Click Test</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box{
+    width:220px;
+    height:120px;
+    background:#2196F3;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    font-weight:bold;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.box:hover{
+    background:#1565C0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box" id="testBox">
+TEST
+</div>
+
+<script>
+
+document.getElementById("testBox").addEventListener("click", async function(){
+
+    const text=this.innerText;
+
+    const response=await fetch("/save",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            text:text
+        })
+    });
+
+    const data=await response.json();
+
+    alert(data.message);
+
+});
+
+</script>
+
+</body>
+</html>
