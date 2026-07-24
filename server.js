@@ -13,16 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 
-
-const pool = new Pool({
-
-    user: "u0_a352",
-    host: "localhost",
-    database: "myapp",
-    port: 5432
-
-});
-
 // Save quiz result
 
 app.post("/save-result", async(req,res)=>{
