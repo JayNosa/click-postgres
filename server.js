@@ -5,11 +5,10 @@ const app = express();
 const PORT = 3000;
 
 const pool = new Pool({
-    user: "u0_a352",      // Change if your PostgreSQL username is different
-    host: "localhost",
-    database: "clickdb",
-    password: "",          // Add your password if you have one
-    port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 app.use(express.json());
