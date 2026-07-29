@@ -91,867 +91,612 @@ button{
 <script>
 
 const questions=[
-  {
-    "question": "The government is making concerted efforts at providing essential social facilities in the rural areas.",
-    "options": [
-      "Dissipated",
-      "Unconcerned",
-      "Unsuccessful",
-      "Uncontrolled"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "The Western allies frowned at their enemies' indiscriminate bombing of their territory.",
-    "options": [
-      "Impartial",
-      "Selective",
-      "Unprovoked",
-      "Divided"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "It was their custom to keep an open house on Sundays.",
-    "options": [
-      "Welcome all visitors",
-      "Keep the shutters open",
-      "Leave the house open",
-      "Expose the whole house"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The president made a passionate appeal for calm.",
-    "options": [
-      "Inflamed",
-      "Disturbing",
-      "Intense",
-      "Lively"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "Bala stole the dirty talking turn from the bakery.",
-    "options": [
-      "Receipts",
-      "Collections",
-      "Contributions",
-      "Offerings"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "You do not need to shutter in order to show your excitement.",
-    "options": [
-      "Jump about",
-      "Shout",
-      "Sob",
-      "Slammer"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "What embarrasses me is the stolid way in which the new servant goes about his duties in this house.",
-    "options": [
-      "Indolent",
-      "Furtive",
-      "Boisterous",
-      "Agile"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The way he handled the whole issue was rather despicable.",
-    "options": [
-      "Disturbing",
-      "Likeable",
-      "Contemptible",
-      "Frustrating"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "The authenticity of the reporters' claims should be established before taking further actions on the matter.",
-    "options": [
-      "Facts",
-      "Source",
-      "Evidence",
-      "Genuineness"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "After careful investigation, the police found no iota of truth in Ibrahim's allegation.",
-    "options": [
-      "Quota",
-      "Grain",
-      "Evidence",
-      "Statement"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "The case was thrown out because the court lacked jurisdiction.",
-    "options": [
-      "Judges to help the judge",
-      "Authority",
-      "Prosecutors",
-      "Appellate powers"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "The chief will launch the fund-raising appeal.",
-    "options": [
-      "Make a speech at",
-      "Call his afternoon meal during",
-      "Travel by boat to",
-      "Start off"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "Okeke has been employed but he is unhappy because it is a run-of-mill job.",
-    "options": [
-      "Boring",
-      "Poor paying",
-      "Tiring",
-      "An ordinary"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "I would like to believe that this brilliant performance of yours is not just a flash in the pan.",
-    "options": [
-      "Repeated occurrence",
-      "Normal happening",
-      "Flashy happening",
-      "Chance occurrence"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "As the wedding day approached, the bride began to develop cold feet.",
-    "options": [
-      "Fall sick",
-      "Be too cold",
-      "Be reluctant",
-      "Become aggressive"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "I told my brother to get the matter off his chest as soon as possible.",
-    "options": [
-      "Give serious thoughts to the matter",
-      "Say what has been making him anxious",
-      "Make a brief comment",
-      "State his points clearly"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "He has a big heart but he is inept at following a witty conversation.",
-    "options": [
-      "Large",
-      "Huge",
-      "Warm",
-      "Fragile"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "The clerk refused to answer for the mistakes made by the manager and his assistants.",
-    "options": [
-      "Reply to",
-      "Give an answer",
-      "Accept responsibility for",
-      "Account for"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Most of his observations were wide of the mark.",
-    "options": [
-      "Comprehensive",
-      "Irrelevant",
-      "Pertinent",
-      "Unacceptable"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "I didn't think she could be so easily taken in by his pretences.",
-    "options": [
-      "Flattered",
-      "Impressed",
-      "Deceived",
-      "Overcome"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Do you have the same aversion as I do towards films?",
-    "options": [
-      "Happiness",
-      "Dislike",
-      "Criticism",
-      "Preference"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "His summary of the meeting was brief and to the point.",
-    "options": [
-      "Precise",
-      "Accurate",
-      "Exact",
-      "Crud"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The Minister hit on a plan to retain his post after many months of lobbying.",
-    "options": [
-      "Drew up a plan",
-      "Discovered a plan",
-      "Selected a plan",
-      "Designed a plan"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "My friend will hate his uncle forever because he left him in the lurch in his hour of need.",
-    "options": [
-      "Abandoned him",
-      "Punished him",
-      "Disinherited him",
-      "Despised him"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "Which of the following food substances is digested in the stomach?",
-    "options": [
-      "Carbohydrates",
-      "Fats and oils",
-      "Fats and proteins",
-      "Carbohydrates and fats"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "The conversion of excess amino acids into urea occurs in the:",
-    "options": [
-      "Kidney",
-      "Pancreas",
-      "Spleen",
-      "Liver"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "Where is food stored in a yam plant?",
-    "options": [
-      "Stem",
-      "Bud",
-      "Adventitious root",
-      "Tap root"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "Growing yam tendrils climb for support. This growth response is:",
-    "options": [
-      "Haptotropism",
-      "Geotropism",
-      "Hydrotropism",
-      "Chemotropism"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The functional unit of a mammalian kidney is the:",
-    "options": [
-      "Malpighian capsule",
-      "Glomerulus",
-      "Ureter",
-      "Nephron"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "The glottis is the opening which leads to the:",
-    "options": [
-      "Oesophagus",
-      "Larynx",
-      "Mouth",
-      "Pharynx"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "If the gall bladder of a man is removed by surgery, which of the following processes will be most seriously affected?",
-    "options": [
-      "Digestion of carbohydrates",
-      "Digestion of fats",
-      "Absorption of proteins",
-      "Absorption of water"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "Which of the following pieces of apparatus can be used for drawing a current of air through a liquid?",
-    "options": [
-      "Wash bottle",
-      "Aspirator",
-      "Pipette",
-      "Capillary tube"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "The greenhouse effect is a climate condition associated with the presence of excess:",
-    "options": [
-      "Carbon(IV) oxide",
-      "Hydrogen sulphide",
-      "Ammonia gas",
-      "Nitrogen(II) oxide"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "Electrovalent compounds are characterized by:",
-    "options": [
-      "Solubility in ethanol",
-      "High molar mass",
-      "High melting point",
-      "Strong oxidizing ability"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "A germinating seed requires oxygen which is essential for:",
-    "options": [
-      "Converting carbohydrate into glucose",
-      "Transporting energy from one part of the plant to another",
-      "The production of energy by oxidizing essential carbohydrates",
-      "Hydrolysis of proteins"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "A carbohydrate molecule in the right ventricle of the heart is pumped into the cell of the toe of man. Which of these structures is it unlikely to pass through en route?",
-    "options": [
-      "Pulmonary artery",
-      "Lungs",
-      "Heart",
-      "Liver"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "Which of these elements is required by plants in small quantities only?",
-    "options": [
-      "Boron",
-      "Potassium",
-      "Magnesium",
-      "Nitrogen"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The mammalian stomach can carry out a number of processes except:",
-    "options": [
-      "Absorption of glucose",
-      "Secretion of hydrochloric acid",
-      "Production of trypsin",
-      "Churning of food"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "A farmer working in a swamp rice farm did not have any food but drank any water. Which of the disease can he not contract?",
-    "options": [
-      "Cholera",
-      "Bilharziasis",
-      "Malaria",
-      "Liver blindness"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "A seiche disc is used in the determination of:",
-    "options": [
-      "Rainfall",
-      "Tidal wave",
-      "Turbidity",
-      "Current velocity"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Which of these is not an enzyme?",
-    "options": [
-      "Pepsin",
-      "Gastrin",
-      "Amylase",
-      "Trypsin"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "The plumule is best described as:",
-    "options": [
-      "Part of the cotyledon",
-      "Part of the endosperm",
-      "A miniature shoot",
-      "Structure opposite the hilum"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "A gland in the human body secretes two hormones, one of which causes a disease called diabetes when there is a deficiency. Which of these organs produces the hormones?",
-    "options": [
-      "Spleen",
-      "Adrenal body",
-      "Pancreas",
-      "Thyroid and parathyroid"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "A sugar solution was boiled with Fehling's solution and the colour remained blue. The sugar tested was:",
-    "options": [
-      "Glucose",
-      "Maltose",
-      "Fructose",
-      "Sucrose"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "Root hairs have their origin from:",
-    "options": [
-      "Endodermis",
-      "Cortex",
-      "Xylem",
-      "Epidermis"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "One-seeded fruit in which the pericarp and seed have become fused together is known as:",
-    "options": [
-      "Achene",
-      "Samara",
-      "Caryopsis",
-      "Drupe"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Milk can be pasteurized by:",
-    "options": [
-      "The addition of sodium chloride",
-      "Boiling for one hour",
-      "Heating to 75°C for 20 minutes",
-      "Heating to 75°C for one hour"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Human beings require vitamins in their diet because vitamins:",
-    "options": [
-      "Contain carbohydrates and fats",
-      "Stimulate the alimentary canal",
-      "Digest proteins in the body",
-      "Influence many important chemical processes in the body"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "The organ through which food and oxygen are supplied to the human embryo and which also prevents harmful materials from reaching the embryo is the:",
-    "options": [
-      "Amnion",
-      "Uterus",
-      "Placenta",
-      "Umbilical cord"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "If the company had any delay at the customs office, it was ____ their own making.",
-    "options": [
-      "at",
-      "of",
-      "from",
-      "through"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The members of the panel were ____.",
-    "options": [
-      "discussing about it",
-      "discussing on it",
-      "discussing it",
-      "discussing around it"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "The giant hydro-electric project is among the ____ of colonial rule in Southern Africa.",
-    "options": [
-      "inheritance",
-      "remnants",
-      "legacies",
-      "evidence"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "During the inaugural address, the president ____ the activities of his government for the past eight years.",
-    "options": [
-      "reiterated",
-      "reviewed",
-      "restated",
-      "recited"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "The World Bank team which visited the landlocked country ____ a bleak economic future for it.",
-    "options": [
-      "forecast",
-      "discovered",
-      "thought",
-      "prophesied"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "We travelled all night and arrived ____ the Lagos motorpark at six o'clock in the morning.",
-    "options": [
-      "by",
-      "inside",
-      "in",
-      "at"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "We ought to stay away from this place ____ the robbers come back.",
-    "options": [
-      "provided",
-      "should in case",
-      "in case",
-      "since"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "The principal will be going away on ____ in his absence, the vice-principal will ____ the school.",
-    "options": [
-      "holiday/take over",
-      "holiday/carry on",
-      "holiday/care on",
-      "holiday/look after"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The new leader has good intentions, but he is unable to ____.",
-    "options": [
-      "carry them with him",
-      "carry them out",
-      "carry them on",
-      "carry them well"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "Enugu is not far from here, it is only an ____ driving.",
-    "options": [
-      "hour of",
-      "hour's drive",
-      "hour by driving",
-      "hour's drive"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "Do you know if the new lecturer ____ yet?",
-    "options": [
-      "is arrived",
-      "will be arriving",
-      "has arrived",
-      "had arrived"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Had he known he ____ away.",
-    "options": [
-      "will go",
-      "will be going",
-      "would have gone",
-      "will have gone"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "It is time we ____.",
-    "options": [
-      "should be going",
-      "ought to go",
-      "go",
-      "went"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "He sent the children to play ____ he might be alone.",
-    "options": [
-      "because",
-      "so that",
-      "since",
-      "while"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "The frictional force between two bodies ____.",
-    "options": [
-      "exists only when there is relative motion or tendency for motion",
-      "acts so as to oppose the motion",
-      "depends on the normal reaction between the two surfaces",
-      "has all of these characteristics"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "An ice cube floats in a glass of water filled to the brim. What happens when the ice melts?",
-    "options": [
-      "The water level remains the same",
-      "The water in the glass overflows",
-      "There is a drop in the level of water in the glass due to condensation of its outside",
-      "The level of water drops because melted ice occupies less volume"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The internationally agreed system of units (SI) for physical measurements is:",
-    "options": [
-      "lb, ft, sec",
-      "g, m, sec",
-      "kg, m, sec",
-      "kg, cm, sec"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "To determine the weight of an object, you could:",
-    "options": [
-      "use a beam balance",
-      "use a spring balance",
-      "find the force necessary to give it a certain acceleration",
-      "use none of these methods"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "Which of the following statement explains why tetraoxosulphate(VI) acid is regarded as a strong acid?",
-    "options": [
-      "The acid is concentrated",
-      "The acid is highly corrosive",
-      "The acid is completely ionized",
-      "Tetraoxosulphate(VI) ions are very reactive"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Which of the following is not correct of glucose and fructose?",
-    "options": [
-      "They are structural isomers",
-      "They reduce Fehling's solution",
-      "They are obtained by the hydrolysis of starch",
-      "They are readily fermented by enzymes"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Which of the following is normally used for drying ammonia gas?",
-    "options": [
-      "Concentrated tetraoxosulphate(VI) acid",
-      "Calcium oxide",
-      "Anhydrous calcium chloride",
-      "Phosphorus(V) oxide"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "Nuclear reactions can be used in the following except:",
-    "options": [
-      "gauging the thickness of objects",
-      "making atomic bombs",
-      "generating electricity",
-      "purifying water"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "The following metals are extracted by the electrolytic method except:",
-    "options": [
-      "potassium",
-      "tin",
-      "calcium",
-      "magnesium"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "PMS (petrol) can be obtained from AGO (diesel) by:",
-    "options": [
-      "distillation",
-      "cracking",
-      "catalysis",
-      "polymerization"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "The separation of a mixture of calcium trioxocarbonate(IV) and sodium trioxocarbonate(IV) is most easily carried out by using the differences in their:",
-    "options": [
-      "physical states",
-      "melting points",
-      "solubility",
-      "boiling points"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "What is the amount in mole of sodium trioxocarbonate(IV) in 53g of the compound? (Na = 23; C = 12; O = 16)",
-    "options": [
-      "0.05",
-      "0.10",
-      "0.50",
-      "0.20"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "Brass is an alloy of:",
-    "options": [
-      "copper and iron",
-      "copper and chromium",
-      "copper and zinc",
-      "copper and magnesium"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "The products of the electrolysis of dilute sodium chloride solution with platinum electrodes are:",
-    "options": [
-      "hydrogen and oxygen",
-      "hydrogen and chlorine",
-      "oxygen and chlorine",
-      "oxygen and water"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "When starch undergoes complete enzyme-catalyzed hydrolysis, the resulting product is:",
-    "options": [
-      "glucose",
-      "maltose",
-      "sucrose",
-      "fructose"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "Which of the following is not a direct petroleum product?",
-    "options": [
-      "Ethanol",
-      "Methane",
-      "Vaseline",
-      "Kerosene"
-    ],
-    "answer": 0
-  },
-  {
-    "question": "Which of the following properties is not characteristic of electrovalent compounds?",
-    "options": [
-      "Formation of crystalline solids",
-      "Solubility in polar solvents",
-      "High vapour pressure",
-      "High melting and boiling points"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Compounds that have the same molecular formula but different structures are said to be:",
-    "options": [
-      "Allotropic",
-      "Polymeric",
-      "Isomeric",
-      "Isotopic"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Water from a river contaminated by sodium hydroxide waste will have a pH of about:",
-    "options": [
-      "1",
-      "3",
-      "7",
-      "9"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "Which of the following is suitable for determining different isotopes present in an element?",
-    "options": [
-      "Isotope counter",
-      "Cathode ray tube",
-      "Mass spectrometer",
-      "Geiger-Muller counter"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "When iron rusts, it undergoes:",
-    "options": [
-      "deliquescence",
-      "chemical decomposition",
-      "hydrolysis",
-      "redox reaction"
-    ],
-    "answer": 3
-  },
-  {
-    "question": "When sucrose is warmed with Fehling's solution:",
-    "options": [
-      "the solution turns milky",
-      "a brick-red precipitate is formed",
-      "there is no precipitate",
-      "a blue-black colouration is produced"
-    ],
-    "answer": 2
-  },
-  {
-    "question": "Which of the following minerals contains fluorine as one of its constituent elements?",
-    "options": [
-      "Cryolite",
-      "Bauxite",
-      "Kaolin",
-      "Mica"
-    ],
-    "answer": 0
-  }
-];
+{
+"question": "The rate of a reaction is proportional to the number of effective collisions occurring per second between the reactants. This statement is associated with the:",
+"options": [
+"Kinetic theory",
+"Rate law",
+"Atomic theory",
+"Collision theory",
+"Gas laws"
+],
+"answer": 3
+},
+{
+"question": "How many faradays of electricity are required to liberate 9 g of aluminium? (Al = 27)",
+"options": [
+"0.1",
+"0.3",
+"1.0",
+"2.7",
+"3.0"
+],
+"answer": 2
+},
+{
+"question": "Which of the following metals will be most suitable for use where lightness and resistance to corrosion are of importance?",
+"options": [
+"Lead",
+"Copper",
+"Iron",
+"Calcium",
+"Aluminium"
+],
+"answer": 4
+},
+{
+"question": "If you cross-breed a tall variety (Tt) of maize with a short variety (tt), the ratio of tall to short plants in the offspring will be:",
+"options": [
+"2:1",
+"1:2",
+"1:1",
+"1:3",
+"3:1"
+],
+"answer": 2
+},
+{
+"question": "Euglena may be classified as a plant because it:",
+"options": [
+"Has chloroplasts",
+"Has a gullet",
+"Lives in a pond",
+"Possesses a flagellum",
+"Has a pellicle"
+],
+"answer": 0
+},
+{
+"question": "When proteins are broken down, they also provide:",
+"options": [
+"Oxygen",
+"Carbohydrates",
+"Energy",
+"Amino acids",
+"Carbon dioxide"
+],
+"answer": 2
+},
+{
+"question": "Which of the following products obtained from analysing sweat from the skin is not an excretory product?",
+"options": [
+"Water",
+"Salts",
+"Dust",
+"Urea",
+"Urates"
+],
+"answer": 2
+},
+{
+"question": "The centre which controls respiratory activities in the mammalian brain is the:",
+"options": [
+"Cerebrum",
+"Olfactory lobes",
+"Pituitary organ",
+"Cerebellum",
+"Medulla oblongata"
+],
+"answer": 4
+},
+{
+"question": "The removal of a man's pancreas by surgical operation can affect the digestion of:",
+"options": [
+"Starch",
+"Starch, proteins and fats",
+"Oils and fats",
+"Proteins",
+"Carbohydrates and fats"
+],
+"answer": 1
+},
+{
+"question": "Which of the following does a virus have in common with animal cells?",
+"options": [
+"Nucleus",
+"DNA",
+"Glycogen",
+"Cytoplasm",
+"Cell membrane"
+],
+"answer": 1
+},
+{
+"question": "The sex of a foetus is determined during:",
+"options": [
+"Meiosis",
+"Copulation",
+"Fertilization",
+"Placentation",
+"Implantation"
+],
+"answer": 2
+},
+{
+"question": "The organ located within the duodenal loop in mammals is the:",
+"options": [
+"Spleen",
+"Pancreas",
+"Liver",
+"Gall bladder",
+"Kidney"
+],
+"answer": 1
+},
+{
+"question": "Where is energy produced in a cell?",
+"options": [
+"Nucleus",
+"Nucleolus",
+"Lysosomes",
+"Chloroplast",
+"Mitochondria"
+],
+"answer": 4
+},
+{
+"question": "As he was still in need of money, I was careful not to ______ him any money.",
+"options": [
+"Credit",
+"Loan",
+"Borrow",
+"Extend",
+"Lend"
+],
+"answer": 4
+},
+{
+"question": "Last week the ______ at the theatre was the largest I had ever seen.",
+"options": [
+"Assembly",
+"Congregation",
+"Convention",
+"Audience",
+"Crowd"
+],
+"answer": 3
+},
+{
+"question": "The green snake which lives in the green grass is using a perfect ______.",
+"options": [
+"Ambush",
+"Undercover",
+"Camouflage",
+"Shelter",
+"Subterfuge"
+],
+"answer": 2
+},
+{
+"question": "In order to carry out the necessary post-mortem examination, the ______ dead body was ______.",
+"options": [
+"Extracted",
+"Extradited",
+"Exiled",
+"Exhumed",
+"Expelled"
+],
+"answer": 3
+},
+{
+"question": "Remember, this matter is strictly ______ you and me.",
+"options": [
+"Between you and I",
+"Among you and I",
+"Among you and me",
+"Between you and me",
+"Between you and myself"
+],
+"answer": 3
+},
+{
+"question": "Equilibrium is said to be attained in a reversible reaction when:",
+"options": [
+"All the reactants have been used up",
+"All the products have been formed",
+"There is no further change in temperature",
+"The rates of the forward and backward reactions are equal",
+"The rate of formation of the products decreases with time"
+],
+"answer": 3
+},
+{
+"question": "Bubbling carbon(IV) oxide into calcium hydroxide solution results in the formation of:",
+"options": [
+"CaO",
+"Ca(OH)₂",
+"CaCO₃",
+"Ca(HCO₃)₂",
+"H₂CO₃"
+],
+"answer": 2
+},
+{
+"question": "If 3 moles of electrons are required to deposit 1 mole of a metal M during the electrolysis of its molten chloride, the empirical formula of the metallic chloride is:",
+"options": [
+"MCl",
+"MCl₂",
+"MCl₃",
+"M₂Cl₃",
+"M₃Cl"
+],
+"answer": 2
+},
+{
+"question": "Which of the following compounds crystallizes without water of crystallization?",
+"options": [
+"Na₂CO₃",
+"CuSO₄",
+"MgSO₄",
+"NaCl",
+"FeSO₄"
+],
+"answer": 3
+},
+{
+"question": "When starch undergoes complete enzyme-catalysed hydrolysis, the resulting product is:",
+"options": [
+"Glucose",
+"Maltose",
+"Sucrose",
+"Fructose",
+"Cellulose"
+],
+"answer": 0
+},
+{
+"question": "When steam is passed over white-hot coke, the products are:",
+"options": [
+"Carbon(IV) oxide and nitrogen",
+"Carbon(IV) oxide and hydrogen",
+"Carbon(II) oxide and nitrogen",
+"Carbon(II) oxide and hydrogen",
+"Carbon(IV) oxide and steam"
+],
+"answer": 3
+},
+{
+"question": "Which of the following compounds will not decompose when heated strongly?",
+"options": [
+"NaHCO₃",
+"KOH",
+"MgO",
+"Ca(HCO₃)₂",
+"Na₂CO₃"
+],
+"answer": 2
+},
+{
+"question": "As he was still in need of money, I was careful not to ______ him any money.",
+"options": [
+"Credit",
+"Loan",
+"Borrow",
+"Extend",
+"Lend"
+],
+"answer": 4
+},
+{
+"question": "Last week the ______ at the theatre was the largest I had ever seen.",
+"options": [
+"Assembly",
+"Congregation",
+"Convention",
+"Audience",
+"Crowd"
+],
+"answer": 3
+},
+{
+"question": "The green snake which lives in the green grass is using a perfect ______.",
+"options": [
+"Ambush",
+"Undercover",
+"Camouflage",
+"Shelter",
+"Subterfuge"
+],
+"answer": 2
+},
+{
+"question": "In order to carry out the necessary post-mortem examination, the dead body was ______.",
+"options": [
+"Extracted",
+"Extradited",
+"Exiled",
+"Exhumed",
+"Expelled"
+],
+"answer": 3
+},
+{
+"question": "The speaker was ______ when making a serious point.",
+"options": [
+"Showing anxiety when making a serious point",
+"Breaking down when talking seriously",
+"Using his hands and arms as a sign",
+"Bowing his head in humility",
+"Shaking his head from one side to the other"
+],
+"answer": 2
+},
+{
+"question": "He heard the loud noise of the huge air-raid siren.",
+"options": [
+"Buzz",
+"Crack",
+"Murmur",
+"Whistle",
+"Wail"
+],
+"answer": 4
+},
+{
+"question": "One of the stages of the creative process is the incubation period. This refers to the period when:",
+"options": [
+"The idea is firmly fixed through repetition",
+"The person suddenly comes upon the idea",
+"The person thinks over the idea",
+"The idea yields concrete results",
+"The idea is given up"
+],
+"answer": 2
+},
+{
+"question": "When a man is immune to an illness, he is:",
+"options": [
+"Opposed to it",
+"Attached to it",
+"Hated by it",
+"Protected against it",
+"Addicted to it"
+],
+"answer": 3
+},
+{
+"question": "The two boxers were neck and neck up till the sixth round but in the seventh and final round, the bigger one lost ground.",
+"options": [
+"Could no longer stand on his feet",
+"Failed to maintain his position",
+"Was beaten",
+"Became dizzy",
+"Became a punching bag"
+],
+"answer": 1
+},
+{
+"question": "He uses his savings to bring up his nephew.",
+"options": [
+"Lend",
+"Accompany",
+"Feed",
+"Support",
+"Conduct"
+],
+"answer": 3
+},
+{
+"question": "Whenever I travel abroad, I always bring on my return photographs, postcards and other small items as souvenirs.",
+"options": [
+"Mementoes",
+"Remembrance",
+"Memorials",
+"Memorable",
+"Property"
+],
+"answer": 0
+},
+{
+"question": "When the beggar was tired, he ______ by the roadside.",
+"options": [
+"Lied",
+"Laid down",
+"Layed",
+"Lay",
+"Lain"
+],
+"answer": 3
+},
+{
+"question": "He did not like ______ leaving the class early.",
+"options": [
+"We",
+"Us",
+"Our",
+"Ourselves",
+"Ours"
+],
+"answer": 2
+},
+{
+"question": "Before the operation, the dentist found that his patient's teeth ______.",
+"options": [
+"Had long decayed",
+"Had long teeth been decayed",
+"Had long being decayed",
+"Had been long decayed",
+"Had been decayed long"
+],
+"answer": 3
+},
+{
+"question": "The employer, not the salesman and his representative, ______ responsible for the loss of revenue.",
+"options": [
+"Are",
+"Were",
+"Is",
+"Have been",
+"Be"
+],
+"answer": 2
+},
+{
+"question": "The boy was born before his parents actually got married and so the court has declared him:",
+"options": [
+"Illegal",
+"Illegitimate",
+"Illicit",
+"Unlawful",
+"Untenable"
+],
+"answer": 1
+},
+{
+"question": "In the match against the Rangers team, the Enyimba boys turned out to be the dark horse.",
+"options": [
+"Played most brilliantly",
+"Played below their usual form",
+"Won unexpectedly",
+"Lost as expected",
+"Won as expected"
+],
+"answer": 2
+},
+{
+"question": "He spoke with his heart in his mouth.",
+"options": [
+"Courageously",
+"With such unusual cowardice",
+"With a lot of confusion in his speech",
+"Without being able to make up his mind",
+"With fright and agitation"
+],
+"answer": 4
+},
+{
+"question": "The leader in today's issue of Punch Newspaper focuses on inflation.",
+"options": [
+"President",
+"Heading",
+"Editorial",
+"Columnist",
+"Proprietor"
+],
+"answer": 2
+},
+{
+"question": "All his plans fell through.",
+"options": [
+"Failed",
+"Were accomplished",
+"Had to be reviewed",
+"Were rejected",
+"Fell"
+],
+"answer": 0
+},
+{
+"question": "He stared at her.",
+"options": [
+"Glanced",
+"Peeped",
+"Looked",
+"Gazed",
+"Fixed"
+],
+"answer": 3
+},
+{
+"question": "As he was a gullible leader, his followers took advantage of him.",
+"options": [
+"He was weak and unable to enforce his authority",
+"He was partial and unfair in dispensing justice",
+"He was simple-minded to a fault",
+"He was slow to act",
+"He lacked education and experience in everyday affairs"
+],
+"answer": 2
+},
+{
+"question": "His summary of the lecture was brief and to the point.",
+"options": [
+"Careful",
+"Precise",
+"Accurate",
+"Exact",
+"Crucial"
+],
+"answer": 1
+},
+{
+"question": "Do you have the same aversion as I do to home videos?",
+"options": [
+"Bitterness",
+"Dislike",
+"Criticism",
+"Indignation",
+"Preference"
+],
+"answer": 1
+},
+{
+"question": "I did not think she could be so easily taken in by his pretence.",
+"options": [
+"Flattered",
+"Deceived",
+"Pregnant",
+"Overcome",
+"Blackmailed"
+],
+"answer": 1
+},
+{
+"question": "The witness was guilty of swearing to a statement he knew to be false.",
+"options": [
+"Forgery",
+"Perjury",
+"Libel",
+"Slander",
+"Affidavit"
+],
+"answer": 1
+},
+{
+"question": "Most of his observations were wide of the mark.",
+"options": [
+"Comprehensive",
+"Irrelevant",
+"Pertinent",
+"Came rather late",
+"Unaccepted"
+],
+"answer": 1
+},
+{
+"question": "The clerk refused to answer for the mistakes made by the manager and his assistants.",
+"options": [
+"To reply to",
+"To give an answer",
+"To explain",
+"To accept responsibility",
+"To account"
+],
+"answer": 3
+},
+{
+"question": "Good citizens should take the part of government when it is being attacked by the foreign press.",
+"options": [
+"Speak in support of",
+"Explain the part played by",
+"Act like a representative of",
+"Emphasize the progress made by",
+"Outline the virtues of"
+],
+"answer": 0
+},
+{
+"question": "The Principal of my school has a variety of peculiarities. The most conspicuous is the way he gesticulates when making a serious point.",
+"options": [
+"Shows anxiety when making a serious point",
+"Breaks down when talking seriously",
+"Uses his hands and arms as a sign",
+"Bows his head in humility",
+"Shakes his head from one side to the other"
+],
+"answer": 2
+}
+]
 
 const quiz=document.getElementById("quiz");
 
