@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT Quiz</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+    background:#f5f5f5;
+}
+
+.question{
+    background:#fff;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+    box-shadow:0 0 5px rgba(0,0,0,.1);
+}
+
+button{
+    padding:12px 20px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.timer-container{
+    position:sticky;
+    top:10px;
+    display:flex;
+    justify-content:flex-end;
+    background:white;
+    padding:10px;
+    z-index:1000;
+}
+
+#timer{
+    font-size:24px;
+    color:red;
+    border:2px solid red;
+    padding:10px 20px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.correct{
+    background:#ccffcc;
+    color:green;
+    font-weight:bold;
+}
+
+.wrong{
+    background:#ffcccc;
+    color:red;
+    font-weight:bold;
+}
+
+#result{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<h2>ICT Quiz Examination</h2>
+
+<label><b>Student Name</b></label><br>
+<input type="text" id="studentName" style="width:100%;padding:10px;"><br><br>
+
+<label><b>Class</b></label><br>
+<input type="text" id="studentClass" style="width:100%;padding:10px;"><br><br>
+
+<div class="timer-container">
+<div id="timer">30:00</div>
+</div>
+
+<div id="quiz"></div>
+
+<button onclick="submitQuiz()">Submit</button>
+
+<div id="result"></div>
+
+<script>
+
+const questions=[
+[
+  {
+    "question": "For the term for six years, he decided to join another club.",
+    "options": [
+      "when he played",
+      "playing",
+      "having played",
+      "when he was playing"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The bridge connecting the two cities was ______ by the enemy.",
+    "options": [
+      "blown up",
+      "blown down",
+      "blown away",
+      "blown over"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "My little boy is suffering ______ jaundice.",
+    "options": [
+      "from",
+      "of",
+      "for",
+      "with"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "They went to the market and bought ______ suitcase and bag.",
+    "options": [
+      "a big leather brown",
+      "a leather brown big",
+      "a big brown leather",
+      "a brown big leather"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "By the end of this year, I ______ in this town for eleven years.",
+    "options": [
+      "am living",
+      "would be living",
+      "will have lived",
+      "have lived"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "If he had left home earlier, he ______ late.",
+    "options": [
+      "would not be",
+      "would have not been",
+      "would have been not",
+      "would not have been"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "I saw you walking in that direction but I did not know exactly ______.",
+    "options": [
+      "where are you going",
+      "where you were going",
+      "to where you were going",
+      "where you are going"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The hill behind the town was so steep ______.",
+    "options": [
+      "that no man could find a foothold on",
+      "for no man to find a foothold on",
+      "for any man to find a foothold on",
+      "that no man could find a foothold on it"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Walking down the street ______.",
+    "options": [
+      "the boy was knocked down by a car",
+      "a car knocked the boy down",
+      "the boy was knocked down by car",
+      "a car collided with the boy"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The project which seemed very near realization ______ because of lack of funds.",
+    "options": [
+      "fell over",
+      "fell through",
+      "fell in",
+      "fell off"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The chairman of the company was very sympathetic ______ his staff.",
+    "options": [
+      "to",
+      "at",
+      "for",
+      "on"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Jane asked John ______.",
+    "options": [
+      "whether could she meet him later",
+      "could she meet him later",
+      "if she could meet him later",
+      "she could meet him later"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "She doesn't have to attend the lecture, ______?",
+    "options": [
+      "doesn't she",
+      "is she",
+      "has she",
+      "does she"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "After our series of quarrels, it would be ______ to pretend that I have any more regard for him.",
+    "options": [
+      "hypothetical",
+      "essential",
+      "hypocritical",
+      "inevitable"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "If the company had any delay at the customs office, it was ______ their own making.",
+    "options": [
+      "at",
+      "of",
+      "from",
+      "through"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The members of the panel were ______.",
+    "options": [
+      "discussing about it",
+      "discussing on it",
+      "discussing it",
+      "discussing around it"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The giant hydro-electric project is among the ______ of colonial rule in Southern Africa.",
+    "options": [
+      "inheritance",
+      "remnants",
+      "legacies",
+      "evidence"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "During the inaugural address, the president ______ the activities of his government for the past eight years.",
+    "options": [
+      "reiterated",
+      "reviewed",
+      "restated",
+      "recited"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The World Bank team which visited the landlocked country ______ a bleak economic future for it.",
+    "options": [
+      "forecast",
+      "discovered",
+      "thought of",
+      "prophesied"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "We travelled all night and arrived ______ the Lagos motor park at six o'clock in the morning.",
+    "options": [
+      "by",
+      "inside",
+      "in",
+      "at"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "We ought to stay away from this place ______ the robbers come back.",
+    "options": [
+      "provided",
+      "should",
+      "in case",
+      "since"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The principal will be going away on ______. In his absence, the vice-principal will ______ the school.",
+    "options": [
+      "holidays / take over",
+      "holiday / carry on",
+      "holidays / care for",
+      "holiday / look after"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "The new leader has good intentions, but he is unable to ______.",
+    "options": [
+      "carry them with him",
+      "carry them out",
+      "carry them on",
+      "carry them well"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Enugu is not far from here; it is only an ______.",
+    "options": [
+      "hour of driving",
+      "hour's drive",
+      "hour by driving",
+      "hours drive"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Do you know if the new lecturer ______ yet?",
+    "options": [
+      "is arrived",
+      "will be arriving",
+      "has arrived",
+      "had arrived"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Had he known he ______ away.",
+    "options": [
+      "will go",
+      "will be going",
+      "would have gone",
+      "will have gone"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "It is time we ______.",
+    "options": [
+      "should be going",
+      "ought to go",
+      "go",
+      "went"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "He sent the children to play ______ he might be alone.",
+    "options": [
+      "because",
+      "so that",
+      "since",
+      "while"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The frictional force between two bodies ______.",
+    "options": [
+      "exists only when there is relative motion or tendency for motion",
+      "acts so as to oppose the motion",
+      "depends on the normal reaction between the two surfaces",
+      "has all of these characteristics"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "An ice cube floats in a glass of water filled to the brim. What happens when the ice melts?",
+    "options": [
+      "The water level remains the same",
+      "The water overflows",
+      "The water level drops due to condensation",
+      "The water level drops because melted ice occupies less volume"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "The internationally agreed system of units (SI) for physical measurements is:",
+    "options": [
+      "lb, ft, sec",
+      "g, m, sec",
+      "kg, m, sec",
+      "kg, cm, sec"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "To determine the weight of an object, you could:",
+    "options": [
+      "use a beam balance",
+      "use a spring balance",
+      "find the force necessary to give it a certain acceleration",
+      "use none of these methods"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The density of a solid is defined as:",
+    "options": [
+      "mass compared to the mass of an equal volume of water",
+      "amount of water displaced by unit mass",
+      "volume per unit mass",
+      "mass per unit volume"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A few grains of table salt were put into cold water and left undisturbed. Eventually all the water tasted salty. This is due to:",
+    "options": [
+      "convection",
+      "osmosis",
+      "capillarity",
+      "diffusion"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Heat from the sun reaches the earth mainly by:",
+    "options": [
+      "insulation",
+      "conduction",
+      "convection",
+      "radiation"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Two lamps rated 40 W and 220 V each are connected in series. The total power dissipated is:",
+    "options": [
+      "10 W",
+      "20 W",
+      "40 W",
+      "80 W"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The amount of heat required to raise the temperature of a body is called:",
+    "options": [
+      "thermal energy",
+      "thermal conduction",
+      "specific heat capacity",
+      "thermal capacity"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "If electricity costs ₦5 per kWh, what is the cost of operating a 200 V lamp drawing 1 A for 24 hours?",
+    "options": [
+      "₦24",
+      "₦32",
+      "₦55",
+      "₦40"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "The high transmission voltage from the national grid is reduced for domestic use by:",
+    "options": [
+      "commutators",
+      "transistors",
+      "valves and diodes",
+      "transformers"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Two boys communicate using a stretched string and two tin cans. This works because sound travels:",
+    "options": [
+      "mainly through air",
+      "faster through gases than solids",
+      "more easily through the stretched string than air",
+      "none of the above"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The temperature at which the water vapour present in the air saturates the air and begins to condense is known as:",
+    "options": [
+      "Boiling point",
+      "Melting point",
+      "Critical temperature",
+      "Dew point"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "An object is placed between two plane mirrors inclined at right angles to each other. The number of images formed is:",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "If the volume of a given mass of gas at constant pressure is directly proportional to its absolute temperature, the gas obeys:",
+    "options": [
+      "Hooke's law",
+      "Boyle's law",
+      "Dalton's law",
+      "Charles's law"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which of the following does NOT reduce the surface tension of water?",
+    "options": [
+      "Detergent",
+      "Alcohol",
+      "Camphor",
+      "Grease"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A generator supplies fifteen 40 W lamps and one 600 W amplifier. If it operates for 6 hours, how much energy is consumed?",
+    "options": [
+      "8.40 kWh",
+      "7.20 kWh",
+      "12.00 kWh",
+      "6.00 kWh"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of the following elements is the best absorber of X-rays?",
+    "options": [
+      "Hydrogen",
+      "Oxygen",
+      "Copper",
+      "Lead"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "When heat is applied to one end of a metal rod, the molecules at the other end soon begin to vibrate because heat has been transferred by:",
+    "options": [
+      "Radiation",
+      "Convection",
+      "Conduction",
+      "Insulation"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The plane mirrors in a kaleidoscope are usually placed:",
+    "options": [
+      "At an angle of 60°",
+      "Parallel to one another",
+      "Perpendicular to one another",
+      "At an angle of 45°"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Why is tetraoxosulphate(VI) acid regarded as a strong acid?",
+    "options": [
+      "It is concentrated",
+      "It is highly corrosive",
+      "It is completely ionized in solution",
+      "Its ions are very reactive"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of the following is NOT correct about glucose and fructose?",
+    "options": [
+      "They are structural isomers",
+      "They reduce Fehling's solution",
+      "They can be obtained by hydrolysis of starch",
+      "They are readily fermented by enzymes"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of the following is normally used for drying ammonia gas?",
+    "options": [
+      "Concentrated tetraoxosulphate(VI) acid",
+      "Calcium oxide",
+      "Anhydrous calcium chloride",
+      "Phosphorus(V) oxide"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Nuclear reactions can be used for the following EXCEPT:",
+    "options": [
+      "Gauging the thickness of objects",
+      "Making atomic bombs",
+      "Generating electricity",
+      "Purifying water"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "The following metals are extracted by electrolysis EXCEPT:",
+    "options": [
+      "Potassium",
+      "Tin",
+      "Calcium",
+      "Magnesium"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Petrol (PMS) can be obtained from diesel (AGO) by:",
+    "options": [
+      "Distillation",
+      "Cracking",
+      "Catalysis",
+      "Polymerization"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A mixture of calcium trioxocarbonate(IV) and sodium trioxocarbonate(IV) is best separated by their difference in:",
+    "options": [
+      "Physical state",
+      "Melting point",
+      "Solubility",
+      "Boiling point"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What is the amount (in moles) of Na₂CO₃ present in 5.3 g? (Na = 23, C = 12, O = 16)",
+    "options": [
+      "0.05",
+      "0.10",
+      "0.50",
+      "0.20"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Brass is an alloy of:",
+    "options": [
+      "Copper and iron",
+      "Copper and chromium",
+      "Copper and zinc",
+      "Copper and magnesium"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The products of electrolysis of dilute sodium chloride solution using platinum electrodes are:",
+    "options": [
+      "Hydrogen and oxygen",
+      "Oxygen and chlorine",
+      "Oxygen and water",
+      "Chlorine and water"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Complete enzyme-catalysed hydrolysis of starch produces:",
+    "options": [
+      "Glucose",
+      "Maltose",
+      "Sucrose",
+      "Fructose"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of the following is NOT a direct petroleum product?",
+    "options": [
+      "Ethanol",
+      "Methane",
+      "Vaseline",
+      "Kerosene"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of the following properties is NOT characteristic of electrovalent compounds?",
+    "options": [
+      "Formation of crystalline solids",
+      "Solubility in polar solvents",
+      "High vapour pressure",
+      "High melting and boiling points"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Compounds that have the same molecular formula but different structural formulae are said to be:",
+    "options": [
+      "Allotropic",
+      "Polymeric",
+      "Isomeric",
+      "Isotopic"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Water from a river contaminated with sodium hydroxide waste is expected to have a pH of about:",
+    "options": [
+      "1",
+      "3",
+      "7",
+      "9"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which of the following instruments is most suitable for determining the different isotopes present in an element?",
+    "options": [
+      "Isotope counter",
+      "Cathode ray tube",
+      "Mass spectrometer",
+      "Geiger-Müller counter"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "When iron rusts, it undergoes:",
+    "options": [
+      "Deliquescence",
+      "Chemical decomposition",
+      "Hydrolysis",
+      "Redox reaction"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "When sucrose is warmed with Fehling's solution:",
+    "options": [
+      "The solution turns milky",
+      "A brick-red precipitate is formed",
+      "No precipitate is formed",
+      "A blue-black colouration is produced"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of the following minerals contains fluorine as one of its constituent elements?",
+    "options": [
+      "Cryolite",
+      "Bauxite",
+      "Kaolin",
+      "Mica"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of the following pieces of apparatus can be used for drawing a current of air through a liquid?",
+    "options": [
+      "Wash bottle",
+      "Aspirator",
+      "Pipette",
+      "Capillary tube"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The greenhouse effect is associated with excess:",
+    "options": [
+      "Carbon(IV) oxide",
+      "Hydrogen sulphide",
+      "Ammonia",
+      "Nitrogen(II) oxide"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Electrovalent compounds are generally characterized by:",
+    "options": [
+      "Solubility in ethanol",
+      "High molar mass",
+      "High melting point",
+      "Strong oxidizing ability"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A germinating seed requires oxygen mainly for:",
+    "options": [
+      "Converting carbohydrates into glucose",
+      "Transporting food through the plant",
+      "Releasing energy by oxidation of food",
+      "Hydrolysis of proteins"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A carbohydrate molecule in the right ventricle of the heart is pumped to the cells of the toe. Which structure is it least likely to pass through?",
+    "options": [
+      "Pulmonary artery",
+      "Lungs",
+      "Heart",
+      "Liver"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which of the following elements is required by plants in only very small quantities?",
+    "options": [
+      "Boron",
+      "Potassium",
+      "Magnesium",
+      "Nitrogen"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "The mammalian stomach performs all of the following EXCEPT:",
+    "options": [
+      "Absorption of glucose",
+      "Secretion of hydrochloric acid",
+      "Production of trypsin",
+      "Churning of food"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A farmer working in a swamp rice farm who did not eat or drink contaminated water cannot contract:",
+    "options": [
+      "Cholera",
+      "Bilharzia",
+      "Malaria",
+      "River blindness"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A Secchi disc is used to determine the:",
+    "options": [
+      "Rainfall",
+      "Tidal wave",
+      "Turbidity of water",
+      "Current velocity"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of the following is NOT an enzyme?",
+    "options": [
+      "Pepsin",
+      "Gastrin",
+      "Amylase",
+      "Trypsin"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The plumule is best described as:",
+    "options": [
+      "Part of the cotyledon",
+      "Part of the endosperm",
+      "A miniature shoot",
+      "A structure opposite the hilum"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Deficiency of one of the hormones produced by which organ causes diabetes mellitus?",
+    "options": [
+      "Spleen",
+      "Adrenal gland",
+      "Pancreas",
+      "Thyroid and parathyroid glands"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A sugar solution was boiled with Fehling's solutions A and B and remained blue. The sugar tested was:",
+    "options": [
+      "Glucose",
+      "Maltose",
+      "Fructose",
+      "Sucrose"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Root hairs have their origin from the:",
+    "options": [
+      "Endodermis",
+      "Cortex",
+      "Xylem",
+      "Epidermis"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A one-seeded fruit in which the pericarp and seed coat are fused together is called:",
+    "options": [
+      "Achene",
+      "Samara",
+      "Caryopsis",
+      "Drupe"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Milk can be pasteurized by:",
+    "options": [
+      "Adding sodium chloride",
+      "Boiling for one hour",
+      "Heating to 75°C for 20 minutes",
+      "Heating to 75°C for one hour"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Human beings require vitamins in their diet because vitamins:",
+    "options": [
+      "Contain carbohydrates and fats",
+      "Stimulate the alimentary canal",
+      "Digest proteins in the body",
+      "Influence many important chemical processes in the body"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "The organ through which food and oxygen are supplied to the human embryo and which also prevents many harmful substances from reaching the embryo is the:",
+    "options": [
+      "Amnion",
+      "Uterus",
+      "Placenta",
+      "Umbilical cord"
+    ],
+    "answer": 2
+  }
+];
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,index)=>{
+
+const div=document.createElement("div");
+
+div.className="question";
+
+let html=`<h3>${index+1}. ${q.question}</h3>`;
+
+q.options.forEach((option,i)=>{
+
+html+=`
+<label>
+<input type="radio" name="q${index}" value="${i}">
+${option}
+</label><br>
+`;
+
+});
+
+div.innerHTML=html;
+
+quiz.appendChild(div);
+
+});
+
+function getGrade(percent){
+
+if(percent>=81) return "A";
+if(percent>=71) return "B";
+if(percent>=61) return "C";
+if(percent>=51) return "D";
+
+return "F";
+
+}
+
+async function submitQuiz(){
+
+let score=0;
+
+questions.forEach((q,index)=>{
+
+const selected=document.querySelector(`input[name="q${index}"]:checked`);
+
+const options=document.querySelectorAll(`input[name="q${index}"]`);
+
+options.forEach(opt=>{
+
+opt.parentElement.classList.remove("correct","wrong");
+
+});
+
+if(selected && Number(selected.value)===q.answer){
+
+score++;
+
+selected.parentElement.classList.add("correct");
+
+}else{
+
+if(selected){
+
+selected.parentElement.classList.add("wrong");
+
+}
+
+options[q.answer].parentElement.classList.add("correct");
+
+}
+
+});
+
+const percentage=Math.round(score/questions.length*100);
+
+const grade=getGrade(percentage);
+
+document.getElementById("result").innerHTML=`
+Score: ${score}/${questions.length}<br>
+Percentage: ${percentage}%<br>
+Grade: ${grade}
+`;
+
+const name=document.getElementById("studentName").value;
+
+const className=document.getElementById("studentClass").value;
+
+try{
+
+const response=await fetch("/save-result",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+name,
+className,
+score,
+percentage,
+grade
+
+})
+
+});
+
+const data=await response.json();
+
+alert(data.message);
+
+}catch(err){
+
+alert("Unable to save result.");
+
+console.log(err);
+
+}
+
+}
+
+let timeLeft=30*60;
+
+const timer=setInterval(()=>{
+
+const minutes=Math.floor(timeLeft/60);
+
+const seconds=timeLeft%60;
+
+document.getElementById("timer").textContent=
+`${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+timeLeft--;
+
+if(timeLeft<0){
+
+clearInterval(timer);
+
+alert("Time is up!");
+
+submitQuiz();
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
